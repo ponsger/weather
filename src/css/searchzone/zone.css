@@ -1,0 +1,8 @@
+.zone{
+    box-sizing: border-box;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg,#12a0dd,#fff);
+}
