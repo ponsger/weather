@@ -1,0 +1,21 @@
+
+.search-weather{
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    height: 3rem;
+    font-size: 1.1rem;
+    outline: none;
+    width: 50%;
+}
+
+.search-button{
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    height: 3rem;
+    color: #fff;
+    background-color: #00a0dd;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
