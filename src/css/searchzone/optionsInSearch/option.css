@@ -1,0 +1,13 @@
+.option{
+    box-sizing: border-box;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #00a0dd;
+    cursor: pointer;
+    color:#00a0dd;
+}
+
+.option:hover{
+    transform: scale(1.1);
+}
