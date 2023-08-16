@@ -3,15 +3,19 @@ import '../css/searchzone/optionsInSearch/option.css'
 import '../css/searchzone/optionsInSearch/cloud.css'
 
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { citiesAutocomplete } from '../data/citiesAutocomplete';
 
+import { CityContext } from '../App';
+
 function OptionsInSearch({ dataSearch, setSelected }) {
+    const {setCityForWeather} = useContext(CityContext);
     const [cityFilter, setCityFilter] = useState([]);
 
     const handleSelectCity = (selectedCity) => {
         setCityFilter([]);
         setSelected(selectedCity.LocalizedName);
+        setCityForWeather(selectedCity);
     }
 
     useEffect(() => {
