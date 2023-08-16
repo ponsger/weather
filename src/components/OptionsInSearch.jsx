@@ -6,10 +6,13 @@ import '../css/searchzone/optionsInSearch/cloud.css'
 import { useEffect, useState } from 'react';
 import { citiesAutocomplete } from '../data/citiesAutocomplete';
 
-function OptionsInSearch({ dataSearch }) {
-
-
+function OptionsInSearch({ dataSearch, setSelected }) {
     const [cityFilter, setCityFilter] = useState([]);
+
+    const handleSelectCity = (selectedCity) => {
+        setCityFilter([]);
+        setSelected(selectedCity.LocalizedName);
+    }
 
     useEffect(() => {
         if (dataSearch !== "")
@@ -21,8 +24,8 @@ function OptionsInSearch({ dataSearch }) {
         <div className="options">
             {cityFilter ?
                 cityFilter.map(city =>
-                    <div key={city.Key} className='option'>
-                        {city.LocalizedName}
+                    <div key={city.Key} className='option' onClick={() => handleSelectCity(city)}>
+                        {`${city.LocalizedName}, ${city.Country.LocalizedName}`}
                     </div>)
                 : "Loading..."}
         </div>
