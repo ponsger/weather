@@ -2,42 +2,34 @@ import '../css/searchzone/zone.css'
 import '../css/searchzone/search.css'
 import '../css/searchzone/form.css'
 
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import OptionsInSearch from './OptionsInSearch';
+
+
 import { apiKey } from '../data/key'
+import { CityContext } from '../App';
 
 function SearchZone() {
     const [inputText, setInputText] = useState("");
-    const [citiesFound, setCitiesFound] = useState([]);
+    const {setCityForWeather} = useContext(CityContext);
 
     const handleChangeSearch = (e) => {
         setInputText(e.target.value);
     }
 
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        fetchCityData();
 
+    }
 
-
-    // const fetchCities = async () => {
-    //     const responseCitiesSearch = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${inputText}&offset=5`);
-    //     const citiesFound = await responseCitiesSearch.json();
-    //     return citiesFound;
-    // }
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     setInputText(e.target.value);
-    //     const citiesFetched = await fetchCities();
-    //     if (citiesFetched)
-    //         setCitiesFound(...citiesFetched)
-    // }
-
-    // const handleChangeCity = async (e) => {
-
-    // }
-
+    const fetchCityData = () =>{
+        //fetching data to get de Key and send it to the father
+        //setCityForWeather()  sending data to father
+    }
 
     useEffect(() => {
-        // getInformation();
+        
     }, [])
 
 
@@ -45,11 +37,11 @@ function SearchZone() {
         <section>
             <div className="zone">
                 <form className='form-weather' onSubmit={(e) => handleSubmit(e)}>
-                    <input className='search-weather' type='text' placeholder='Search city' minLength={4} maxLength={120} onChange={(event) => handleChangeSearch(event)} />
+                    <input className='search-weather' type='text' placeholder='Search city' value={inputText} minLength={4} maxLength={120} onChange={(event) => handleChangeSearch(event)} />
                     <input className='search-button' type="submit" value="Search" />
                 </form>
             </div>
-            <OptionsInSearch dataSearch={inputText} />
+            <OptionsInSearch dataSearch={inputText} setSelected={setInputText} />
         </section>
 
     );
