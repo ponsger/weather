@@ -14,26 +14,37 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 use: {
                     loader: 'babel-loader',
-                    options:{
-                        presets:[
-                            ['@babel/preset-env',{targets : 'defaults'}],
-                            ['@babel/preset-react',{runtime: 'automatic'}]
+                    options: {
+                        presets: [
+                            ['@babel/preset-env', { targets: 'defaults' }],
+                            ['@babel/preset-react', { runtime: 'automatic' }]
                         ]
                     }
                 },
                 exclude: /node_modules/,
-                resolve:{
-                    extensions:['.js','.jsx']
+                resolve: {
+                    extensions: ['.js', '.jsx']
                 }
             },
             {
                 test: /.css$/,
-                use:['style-loader', 'css-loader'],
-                resolve:{
+                use: ['style-loader', 'css-loader'],
+                resolve: {
                     extensions: ['.css']
                 }
             }
         ]
+    },
+    devServer: {
+        static:{
+            watch:true
+        },
+        client: {
+            reconnect:true
+        },
+        compress:true,
+        port: 3000,
+        open: true
     },
     plugins: [
         new webpack.ProgressPlugin(),
