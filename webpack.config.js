@@ -41,6 +41,17 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        static:{
+            watch:true
+        },
+        client: {
+            reconnect:true
+        },
+        compress:true,
+        port: 3000,
+        open: true
+    },
     plugins: [
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({ template: './src/index.html' })

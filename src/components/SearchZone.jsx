@@ -2,15 +2,30 @@ import '../css/searchzone/zone.css'
 import '../css/searchzone/search.css'
 import '../css/searchzone/form.css'
 
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import OptionsInSearch from './OptionsInSearch';
+
+
 import { apiKey } from '../data/key'
+import { CityContext } from '../App';
 
 function SearchZone() {
     const [inputText, setInputText] = useState("");
+    const {setCityForWeather} = useContext(CityContext);
 
     const handleChangeSearch = (e) => {
         setInputText(e.target.value);
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        fetchCityData();
+
+    }
+
+    const fetchCityData = () =>{
+        //fetching data to get de Key and send it to the father
+        //setCityForWeather()  sending data to father
     }
 
     useEffect(() => {

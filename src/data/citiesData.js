@@ -72,3 +72,30 @@ export const citiesSearch = [
       ]
     }
   ]
+
+
+  export const weatherOfCity=[
+    {
+      "LocalObservationDateTime": "2023-08-16T13:10:00-03:00",
+      "EpochTime": 1692202200,
+      "WeatherText": "Clouds and sun",
+      "WeatherIcon": 4,
+      "HasPrecipitation": false,
+      "PrecipitationType": null,
+      "IsDayTime": true,
+      "Temperature": {
+        "Metric": {
+          "Value": 30.2,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Imperial": {
+          "Value": 86,
+          "Unit": "F",
+          "UnitType": 18
+        }
+      },
+      "MobileLink": "http://www.accuweather.com/en/br/ecatu/2308103/current-weather/2308103?lang=en-us",
+      "Link": "http://www.accuweather.com/en/br/ecatu/2308103/current-weather/2308103?lang=en-us"
+    }
+  ]
