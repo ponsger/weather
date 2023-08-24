@@ -1,3 +1,5 @@
+import './css/city-title.css'
+
 import { Fragment, createContext, useEffect, useState } from "react";
 import SearchZone from "./components/SearchZone";
 import CurrentWeather from "./components/CurrentWeather";
@@ -30,6 +32,7 @@ function App() {
             </CityContext.Provider>
             {city.Key ?
                 <div>
+                    <p className="city-title">{`${city.LocalizedName}, ${city.Country.LocalizedName}`}</p>
                     <CurrentWeather data={weatherOfCity} />
                 </div>
 

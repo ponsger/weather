@@ -1,0 +1,9 @@
+.weather-temperature{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 5rem;
+    margin: 1% 0;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+}
