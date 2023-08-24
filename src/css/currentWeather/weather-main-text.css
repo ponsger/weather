@@ -1,6 +1,7 @@
 .weather-main__text{
-    font-size: 1.2em;
+    font-size: 2rem;
     font-family: 'Roboto Mono', monospace;
-    text-decoration: underline;
     text-shadow: 0 0 10px #777;
+    text-align: center;
+    color: #12a599;
 }

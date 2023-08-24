@@ -1,9 +1,10 @@
 .weather{
     box-sizing: border-box;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 5%;
-    padding: 2%;
+    margin-top: 1%;
+    padding: 1%;
     font-family: 'Roboto Mono', monospace;
     text-transform: capitalize;
 }

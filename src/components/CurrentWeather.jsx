@@ -15,13 +15,12 @@ function CurrentWeather({ data }) {
                 <div className="weather">
                     <div className="weather-header">
                         <div className="weather-main">
-                            <img height={"100px"} src={`/icons/${dataIcons[data[0].WeatherIcon].Icon}`} alt={dataIcons[data[0].WeatherIcon].Text} />
+                            <img height={"100%"} src={`/icons/${dataIcons[data[0].WeatherIcon].Icon}`} alt={dataIcons[data[0].WeatherIcon].Text} />
                             <p className='weather-main__text'>{data[0].WeatherText}</p>
-                            <p>{new Date(data[0].EpochTime).toLocaleDateString()}</p>
                         </div>
                         <div className="weather-temperature">
                             <p>{data[0].Temperature.Metric.Value}</p>
-                            <p>{`º${data[0].Temperature.Metric.Unit}`}</p>
+                            <p>{` º${data[0].Temperature.Metric.Unit}`}</p>
                         </div>
                     </div>
                     <div className="weather-details">
