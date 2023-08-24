@@ -1,8 +1,9 @@
-.city-title{
+.city-title {
     font-size: 3rem;
     text-align: center;
     margin-top: 5%;
     font-weight: 700;
     text-transform: capitalize;
-    text-shadow: 5px 5px 5px #aaa;
+    color: #12a0dd;
+    font-family: 'Montserrat', sans-serif;
 }

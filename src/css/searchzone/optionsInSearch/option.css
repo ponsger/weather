@@ -6,6 +6,7 @@
     border: 1px solid #00a0dd;
     cursor: pointer;
     color:#00a0dd;
+    margin: 10px 0;
 }
 
 .option:hover{
