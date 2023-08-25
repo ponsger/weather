@@ -11,25 +11,28 @@ import { CityContext } from '../App';
 
 function SearchZone() {
     const [inputText, setInputText] = useState("");
-    const {setCityForWeather} = useContext(CityContext);
+    const [message, setMessage] = useState("");
+
+    const { setCityForWeather } = useContext(CityContext);
 
     const handleChangeSearch = (e) => {
         setInputText(e.target.value);
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         fetchCityData();
 
     }
 
-    const fetchCityData = () =>{
+    const fetchCityData = async () => {
+
         //fetching data to get de Key and send it to the father
         //setCityForWeather()  sending data to father
     }
 
     useEffect(() => {
-        
+
     }, [])
 
 
@@ -41,7 +44,12 @@ function SearchZone() {
                     <input className='search-button' type="submit" value="Search" />
                 </form>
             </div>
-            <OptionsInSearch dataSearch={inputText} setSelected={setInputText} />
+            {message === "" ?
+                inputText !== "" ?
+                    <OptionsInSearch dataSearch={inputText} setSelected={setInputText} message={setMessage} /> :
+                    <Fragment /> :
+                message}
+
         </section>
 
     );
