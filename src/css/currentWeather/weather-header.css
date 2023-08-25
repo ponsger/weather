@@ -1,0 +1,10 @@
+.weather-header{
+    box-sizing: border-box;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 1%;
+    font-size: 1.5rem;
+}
