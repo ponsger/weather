@@ -4,12 +4,11 @@ import '../css/searchzone/optionsInSearch/cloud.css'
 
 
 import { useContext, useEffect, useState } from 'react';
-import { citiesAutocomplete } from '../data/citiesAutocomplete';
-
+import { apiKey } from '../data/key'
 import { CityContext } from '../App';
 
-function OptionsInSearch({ dataSearch, setSelected }) {
-    const {setCityForWeather} = useContext(CityContext);
+function OptionsInSearch({ dataSearch, setSelected, message }) {
+    const { setCityForWeather } = useContext(CityContext);
     const [cityFilter, setCityFilter] = useState([]);
 
     const handleSelectCity = (selectedCity) => {
@@ -18,10 +17,24 @@ function OptionsInSearch({ dataSearch, setSelected }) {
         setCityForWeather(selectedCity);
     }
 
+    const getOptions = async () => {
+        try {
+            const dataOptionsRequest = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${apiKey}&q=${dataSearch}`);
+            const dataOptionsJson = await dataOptionsRequest.json();
+            setCityFilter(dataOptionsJson);
+        } catch (e) {
+            if (e instanceof TypeError) {
+                if (e.message.includes('fetch')) {
+                    message("Exceed limit")
+                }
+            }
+        }
+
+    }
+
     useEffect(() => {
         if (dataSearch !== "")
-            setCityFilter(citiesAutocomplete.filter(word => word.LocalizedName.toLowerCase()
-                .includes(dataSearch.toLowerCase())));
+            getOptions();
     }, [dataSearch]);
 
     return (
@@ -30,8 +43,8 @@ function OptionsInSearch({ dataSearch, setSelected }) {
                 cityFilter.map(city =>
                     <div key={city.Key} className='option' onClick={() => handleSelectCity(city)}>
                         {`${city.LocalizedName}, ${city.Country.LocalizedName}`}
-                    </div>)
-                : "Loading..."}
+                    </div>) :
+                "Loading..."}
         </div>
     );
 }
