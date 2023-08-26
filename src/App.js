@@ -3,8 +3,8 @@ import './css/city-title.css'
 import { Fragment, createContext, useEffect, useState } from "react";
 import SearchZone from "./components/SearchZone";
 import CurrentWeather from "./components/CurrentWeather";
+import ForecastHourly from './components/ForecastHourly';
 
-import { weatherOfCity } from './data/citiesData'
 import { apiKey } from './data/key'
 
 export const CityContext = createContext({});
@@ -43,6 +43,7 @@ function App() {
                     {currentConditionsWeather.length!==0 ?
                         <CurrentWeather data={currentConditionsWeather} /> :
                         <Fragment/>}
+                    <ForecastHourly dataKey={city.Key} />
                 </div> :
                 <Fragment />}
 
