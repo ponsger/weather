@@ -4,6 +4,7 @@ import { Fragment, createContext, useEffect, useState } from "react";
 import SearchZone from "./components/SearchZone";
 import CurrentWeather from "./components/CurrentWeather";
 import ForecastHourly from './components/ForecastHourly';
+import ForecastDaily from './components/ForecastDaily';
 
 import { apiKey } from './data/key'
 
@@ -44,6 +45,7 @@ function App() {
                         <CurrentWeather data={currentConditionsWeather} /> :
                         <Fragment/>}
                     <ForecastHourly dataKey={city.Key} />
+                    <ForecastDaily dataKey={city.Key} />
                 </div> :
                 <Fragment />}
 
