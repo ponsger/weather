@@ -1,0 +1,10 @@
+.hourly-weather{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+    gap: 5px;
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}

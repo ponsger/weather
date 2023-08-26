@@ -1,0 +1,9 @@
+.hourly{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 2%;
+    border-left: 1px solid #ddd;
+}
