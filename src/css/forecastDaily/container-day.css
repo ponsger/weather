@@ -4,4 +4,5 @@
     align-content: center;
     justify-content: center;
     flex-wrap: nowrap;
+    margin: auto 10px;
 }

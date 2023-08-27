@@ -4,4 +4,6 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    margin: auto 10px;
+    padding: auto 10px;
 }

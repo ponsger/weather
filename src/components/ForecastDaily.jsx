@@ -25,6 +25,7 @@ import { nextFiveDaysForecast } from '../data/citiesData'
 import { dataIcons } from '../data/dataIcons';
 
 function ForecastDaily({ dataKey }) {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return (
         <section className='forecast-daily'>
             <header className='daily-headline'>
@@ -34,7 +35,7 @@ function ForecastDaily({ dataKey }) {
                 {nextFiveDaysForecast.DailyForecasts.map(day =>
                     <div className='main-container' key={day.EpochDate}>
                         <div className='container-date'>
-                            <p className=''>{new Date(day.Date).toLocaleDateString()}</p>
+                            <p className=''>{ days[new Date(day.Date).getDay()]}</p>
                         </div>
                         <div className='container-range-temperature'>
                             <p className='temperature-minimum'>{`${day.Temperature.Minimum.Value}`}</p>
