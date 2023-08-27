@@ -44,8 +44,8 @@ function App() {
                     {currentConditionsWeather.length!==0 ?
                         <CurrentWeather data={currentConditionsWeather} /> :
                         <Fragment/>}
-                    <ForecastHourly dataKey={city.Key} />
-                    <ForecastDaily dataKey={city.Key} />
+                    <ForecastHourly city={city.Key} dataKey={apiKey} />
+                    <ForecastDaily city={city.Key} dataKey={apiKey} />
                 </div> :
                 <Fragment />}
 
