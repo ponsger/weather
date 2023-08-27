@@ -1,0 +1,7 @@
+.day-phrase{
+    text-align: center;
+    margin: 5px 0;
+    font-size: .8rem;
+    text-transform: capitalize;
+    color: #12a0dd;
+}

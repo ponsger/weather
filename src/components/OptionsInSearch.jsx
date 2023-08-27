@@ -25,7 +25,7 @@ function OptionsInSearch({ dataSearch, setSelected, message }) {
         } catch (e) {
             if (e instanceof TypeError) {
                 if (e.message.includes('fetch')) {
-                    message("Exceed limit")
+                    message("Error getting information about cities.")
                 }
             }
         }
