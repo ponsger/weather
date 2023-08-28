@@ -31,7 +31,7 @@ function ForecastHourly({ city,dataKey }) {
                 next12Hours.map(hourlyData =>
                     <div className='hourly' key={hourlyData.EpochDateTime}>
                         <h1 className='hourly-hour'>{`${new Date(hourlyData.DateTime).getHours()}`}</h1>
-                        <img className='hourly-icon' src={`/icons/${dataIcons[hourlyData.WeatherIcon].Icon}`} />
+                        <img className='hourly-icon' src={require(`../assets/icons/${dataIcons[hourlyData.WeatherIcon].Icon}`)} />
                         <div className='hourly-weather'>
                             <p className='hourly-weather__temperature'>{hourlyData.Temperature.Value}</p>
                             <p className='hourly-weather__unit'>{` º${hourlyData.Temperature.Unit}`}</p>
