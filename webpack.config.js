@@ -6,7 +6,8 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].[contenthash].bundle.js"
+        filename: "[name].[contenthash].bundle.js",
+        assetModuleFilename: 'images/[hash][ext][query]'
     },
     module: {
         parser: {
@@ -38,6 +39,10 @@ module.exports = {
                 resolve: {
                     extensions: ['.css']
                 }
+            },
+            {
+                test: /\.png/,
+                type: 'asset/resource'
             }
         ]
     },
