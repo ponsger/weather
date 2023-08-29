@@ -1,0 +1,9 @@
+.weather-img{
+    height: 100%;
+}
+
+@media (max-width:350px) {
+    .weather-img{
+        width: 70%;
+    }
+}

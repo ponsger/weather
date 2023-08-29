@@ -3,3 +3,9 @@
     font-size: 1.5rem;
     color: #12a0dd;
 }
+
+@media (max-width:680px) {
+    .day-title{
+        font-size: 1.3rem;
+    }
+}
