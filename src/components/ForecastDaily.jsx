@@ -3,7 +3,7 @@ import '../css/forecastDaily/headline.css'
 import '../css/forecastDaily/headline-text.css'
 import '../css/forecastDaily/main.css'
 import '../css/forecastDaily/main-container.css'
-import '../css/forecastDaily/container-date.css'
+import '../css/forecastDaily/container-day-temperature.css'
 import '../css/forecastDaily/container-date.css'
 import '../css/forecastDaily/container-range-temperature.css'
 import '../css/forecastDaily/temperature-minimum.css'
@@ -51,14 +51,17 @@ function ForecastDaily({ city, dataKey }) {
                 {daysForecast.DailyForecasts ?
                     daysForecast.DailyForecasts.map(day =>
                         <div className='main-container' key={day.EpochDate}>
-                            <div className='container-date'>
-                                <p className=''>{new Date().getDay() === new Date(day.Date).getDay() ? "Today" : days[new Date(day.Date).getDay()]}</p>
+                            <div className='container-day__temperature'> 
+                                <div className='container-date'>
+                                    <p className=''>{new Date().getDay() === new Date(day.Date).getDay() ? "Today" : days[new Date(day.Date).getDay()]}</p>
+                                </div>
+                                <div className='container-range-temperature'>
+                                    <p className='temperature-minimum'>{`${day.Temperature.Minimum.Value}`}</p>
+                                    <p className='temperature-slash'>/</p>
+                                    <p className='temperature-maximum'>{`${day.Temperature.Maximum.Value}`}</p>
+                                </div>
                             </div>
-                            <div className='container-range-temperature'>
-                                <p className='temperature-minimum'>{`${day.Temperature.Minimum.Value}`}</p>
-                                <p className='temperature-slash'>/</p>
-                                <p className='temperature-maximum'>{`${day.Temperature.Maximum.Value}`}</p>
-                            </div>
+
                             <div className='container-day'>
                                 <h1 className='day-title'>Day</h1>
                                 <img className='day-img' src={require(`../assets/icons/${dataIcons[day.Day.Icon].Icon}`)} />

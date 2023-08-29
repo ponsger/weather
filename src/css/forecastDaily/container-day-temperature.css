@@ -1,0 +1,14 @@
+.container-day__temperature{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+@media (max-width:680px) {
+    .container-day__temperature{
+        flex-direction: column;
+        gap: 10px;
+    }
+}

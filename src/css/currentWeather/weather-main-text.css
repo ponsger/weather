@@ -5,3 +5,9 @@
     color: #12a0dd;
     margin-top: 10px;
 }
+
+@media (max-width:680px) {
+    .weather-main__text{
+        font-size: 1.4rem;
+    }   
+}

@@ -7,3 +7,9 @@
     color: white;
     text-shadow: 2px 2px 10px black;
 }
+
+@media (max-width:680px) {
+    .weather-temperature{
+        font-size: 3rem;
+    }
+}

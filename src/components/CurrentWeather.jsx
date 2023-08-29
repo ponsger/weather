@@ -1,6 +1,7 @@
 import '../css/currentWeather/weather.css'
 import '../css/currentWeather/weather-header.css'
 import '../css/currentWeather/weather-main.css'
+import '../css/currentWeather/weather-img.css'
 import '../css/currentWeather/weather-main-text.css'
 import '../css/currentWeather/weather-temperature.css'
 
@@ -15,7 +16,7 @@ function CurrentWeather({ data }) {
                 <div className="weather">
                     <div className="weather-header">
                         <div className="weather-main">
-                            <img height={"100%"} src={require(`../assets/icons/${dataIcons[data[0].WeatherIcon].Icon}`)} alt={dataIcons[data[0].WeatherIcon].Text} />
+                            <img className='weather-img'src={require(`../assets/icons/${dataIcons[data[0].WeatherIcon].Icon}`)} alt={dataIcons[data[0].WeatherIcon].Text} />
                             <p className='weather-main__text'>{data[0].WeatherText}</p>
                         </div>
                         <div className="weather-temperature">
