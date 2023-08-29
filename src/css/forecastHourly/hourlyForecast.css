@@ -6,3 +6,9 @@
     flex-wrap: nowrap;
     overflow: auto hidden;
 }
+
+@media (max-width:680px) {
+    .hourlyForecast{
+        justify-content: flex-start;
+    }
+}

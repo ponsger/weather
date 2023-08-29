@@ -11,3 +11,11 @@
     padding: 15px;
     box-shadow: 0 0 5px #ddd;
 }
+
+@media (max-width:680px) {
+    .main-container{
+        margin: 0;
+        padding: 0;
+        justify-content: flex-start;
+    }
+}

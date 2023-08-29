@@ -1,4 +1,3 @@
-
 .search-weather{
     box-sizing: border-box;
     border: none;
@@ -18,4 +17,10 @@
     background-color: #00a0dd;
     cursor: pointer;
     font-size: 1.1rem;
+}
+
+@media (max-width:680px) {
+    .search-weather{
+        width: 70%;
+    }
 }
