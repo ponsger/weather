@@ -5,3 +5,9 @@
     text-transform: capitalize;
     color: #12a0dd;
 }
+
+@media (max-width:680px) {
+    .day-phrase{
+        font-size: .7rem;
+    }
+}

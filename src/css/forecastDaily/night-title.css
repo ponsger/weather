@@ -3,3 +3,9 @@
     font-size: 1.5rem;
     color: #999;
 }
+
+@media (max-width:680px) {
+    .night-title{
+        font-size: 1.3rem;
+    }
+}

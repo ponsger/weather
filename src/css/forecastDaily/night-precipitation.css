@@ -5,3 +5,9 @@
     color: white;
     text-shadow: 0 0 5px black;
 }
+
+@media (max-width:680px) {
+    .night-precipitation{
+        font-size: .7rem;
+    }
+}

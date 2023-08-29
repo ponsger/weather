@@ -7,3 +7,9 @@
     color: #12a0dd;
     font-family: 'Montserrat', sans-serif;
 }
+
+@media (max-width:680px) {
+    .city-title{
+        font-size: 2rem;
+    }
+}

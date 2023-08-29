@@ -3,6 +3,17 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 10px 0;
-    padding: 10px 0;
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
+    width: 80%;
+}
+
+@media (max-width: 680px) {
+    .daily-main{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 1.2em;
+    }
 }

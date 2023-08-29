@@ -24,3 +24,17 @@
         width: 70%;
     }
 }
+
+@media (max-width:290px) {
+    .search-weather{
+        width: 80%;
+        border-radius: 10px;
+        align-self: center;
+    }
+
+    .search-button{
+        width: 50%;
+        align-self: center;
+        border-radius: 10px;
+    }
+}
