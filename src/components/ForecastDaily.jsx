@@ -23,15 +23,21 @@ import '../css/forecastDaily/container-night.css'
 import { dataIcons } from '../data/dataIcons';
 import { Fragment, useEffect, useState } from 'react'
 
-function ForecastDaily({ city, dataKey }) {
+function ForecastDaily({ city, dataKey,error }) {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     const [daysForecast, setDayForecast] = useState({});
 
     const fetchingDataFromNextDays = async () => {
-        const nextDaysRequest = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${city}?apikey=${dataKey}&metric=true`);
-        const nextDaysData = await nextDaysRequest.json();
-        setDayForecast(nextDaysData);
+        try {
+            const nextDaysRequest = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${city}?apikey=${dataKey}&metric=true`);
+            const nextDaysData = await nextDaysRequest.json();
+            setDayForecast(nextDaysData);
+        }
+        catch (e) {
+            error(e.message);
+        }
+
     }
 
     useEffect(() => {
@@ -51,7 +57,7 @@ function ForecastDaily({ city, dataKey }) {
                 {daysForecast.DailyForecasts ?
                     daysForecast.DailyForecasts.map(day =>
                         <div className='main-container' key={day.EpochDate}>
-                            <div className='container-day__temperature'> 
+                            <div className='container-day__temperature'>
                                 <div className='container-date'>
                                     <p className=''>{new Date().getDay() === new Date(day.Date).getDay() ? "Today" : days[new Date(day.Date).getDay()]}</p>
                                 </div>
