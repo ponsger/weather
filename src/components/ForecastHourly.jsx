@@ -11,14 +11,19 @@ import '../css/forecastHourly/hourly-precipitation.css'
 import { dataIcons } from '../data/dataIcons';
 import { Fragment, useEffect, useState } from 'react'
 
-function ForecastHourly({ city,dataKey }) {
+function ForecastHourly({ city, dataKey, error }) {
 
     const [next12Hours, setNext12Hours] = useState([]);
 
     const fetchingNextHours = async () => {
-        const nextHoursRequest = await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${city}?apikey=${dataKey}&metric=true`);
-        const nextHoursData = await nextHoursRequest.json();
-        setNext12Hours(nextHoursData);
+        try {
+            const nextHoursRequest = await fetch(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${city}?apikey=${dataKey}&metric=true`);
+            const nextHoursData = await nextHoursRequest.json();
+            setNext12Hours(nextHoursData);
+        } catch (e) {
+            error(e.message);
+        }
+
     }
 
     useEffect(() => {
