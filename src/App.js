@@ -50,13 +50,14 @@ function App() {
                     {currentConditionsWeather.length !== 0 ?
                         <CurrentWeather data={currentConditionsWeather} /> :
                         <Fragment />}
+                    {errorMessageHourly === "" ?
+                        <ForecastHourly city={city.Key} dataKey={apiKey} error={setErrorMessageHourly} /> :
+                        <Fragment>{errorMessageHourly}</Fragment>}
                     {errorMessageDaily === "" ?
                         <ForecastDaily city={city.Key} dataKey={apiKey} error={setErrorMessageDaily} /> :
                         <Fragment>{errorMessageDaily}</Fragment>
                     }
-                    {errorMessageHourly === "" ?
-                        <ForecastHourly city={city.Key} dataKey={apiKey} error={setErrorMessageHourly} /> :
-                        <Fragment>{errorMessageHourly}</Fragment>}
+
                 </div> :
                 <Fragment />}
 
