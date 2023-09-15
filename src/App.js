@@ -24,9 +24,13 @@ function App() {
     const fetchingWeatherOfCity = async () => {
         if (!city.Key)
             return;
-        const currentConditionsRequest = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${apiKey}`);
-        const currentConditionsJson = await currentConditionsRequest.json();
-        setCurrentConditionsWeather(currentConditionsJson);
+        try {
+            const currentConditionsRequest = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${apiKey}&alias=Always`);
+            const currentConditionsJson = await currentConditionsRequest.json();
+            setCurrentConditionsWeather(currentConditionsJson);
+        } catch (e) {
+            console.log(e);
+        }
 
     }
 
@@ -53,9 +57,6 @@ function App() {
                     {errorMessageHourly === "" ?
                         <ForecastHourly city={city.Key} dataKey={apiKey} error={setErrorMessageHourly} /> :
                         <Fragment>{errorMessageHourly}</Fragment>}
-
-
-
                 </div> :
                 <Fragment />}
 
