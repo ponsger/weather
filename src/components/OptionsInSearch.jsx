@@ -1,6 +1,7 @@
-import '../css/searchzone/optionsInSearch/options.css'
-import '../css/searchzone/optionsInSearch/option.css'
-import '../css/searchzone/optionsInSearch/cloud.css'
+import '../css/searchzone/optionsInSearch/options.css';
+import '../css/searchzone/optionsInSearch/option.css';
+import '../css/searchzone/optionsInSearch/cloud.css';
+import '../css/spinner.css';
 
 
 import { useContext, useEffect, useState } from 'react';
@@ -33,8 +34,12 @@ function OptionsInSearch({ dataSearch, setSelected, message }) {
     }
 
     useEffect(() => {
-        if (dataSearch !== "")
-            getOptions();
+        setTimeout(() => {
+            if (dataSearch !== "") 
+                getOptions();
+        }, 500);
+
+
     }, [dataSearch]);
 
     return (
@@ -44,7 +49,7 @@ function OptionsInSearch({ dataSearch, setSelected, message }) {
                     <div key={city.Key} className='option' onClick={() => handleSelectCity(city)}>
                         {`${city.LocalizedName}, ${city.Country.LocalizedName}`}
                     </div>) :
-                "Loading..."}
+                <div className='spinner'></div>}
         </div>
     );
 }
