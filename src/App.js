@@ -15,7 +15,8 @@ function App() {
 
     const [city, setCity] = useState({});
     const [currentConditionsWeather, setCurrentConditionsWeather] = useState([]);
-
+    const [errorMessageDaily, setErrorMessageDaily] = useState("");
+    const [errorMessageHourly, setErrorMessageHourly] = useState("");
     const setCityForWeather = (citySelected) => {
         setCity(citySelected);
     }
@@ -23,9 +24,13 @@ function App() {
     const fetchingWeatherOfCity = async () => {
         if (!city.Key)
             return;
-        const currentConditionsRequest = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${apiKey}`);
-        const currentConditionsJson = await currentConditionsRequest.json();
-        setCurrentConditionsWeather(currentConditionsJson);
+        try {
+            const currentConditionsRequest = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${city.Key}?apikey=${apiKey}&alias=Always`);
+            const currentConditionsJson = await currentConditionsRequest.json();
+            setCurrentConditionsWeather(currentConditionsJson);
+        } catch (e) {
+            console.log(e);
+        }
 
     }
 
@@ -42,11 +47,17 @@ function App() {
             {city.Key ?
                 <div>
                     <p className="city-title">{`${city.LocalizedName}, ${city.Country.LocalizedName}`}</p>
-                    {currentConditionsWeather.length!==0 ?
+                    {currentConditionsWeather.length !== 0 ?
                         <CurrentWeather data={currentConditionsWeather} /> :
-                        <Fragment/>}
-                    <ForecastHourly city={city.Key} dataKey={apiKey} />
-                    <ForecastDaily city={city.Key} dataKey={apiKey} />
+                        <Fragment />}
+                    {errorMessageHourly === "" ?
+                        <ForecastHourly city={city.Key} dataKey={apiKey} error={setErrorMessageHourly} /> :
+                        <Fragment>{errorMessageHourly}</Fragment>}
+                    {errorMessageDaily === "" ?
+                        <ForecastDaily city={city.Key} dataKey={apiKey} error={setErrorMessageDaily} /> :
+                        <Fragment>{errorMessageDaily}</Fragment>
+                    }
+
                 </div> :
                 <Fragment />}
 
